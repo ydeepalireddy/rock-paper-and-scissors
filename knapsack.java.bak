@@ -1,0 +1,59 @@
+import java.util.Scanner;
+class knapsack
+{
+	void find(int W,int wt[],int value[],int n)
+	{
+		int m=0,w=0,v=0;
+		int c=0;
+		/*int p[]=new int[n];
+		for( j=0;j<n;j++)
+		{
+		for(int i=0;i<n;i++)
+		{
+			if(c<value[i])
+			{
+				c=value[i];
+			}
+		}
+		p[j]=c;
+		}*/
+		for( int j=0;j<n;j++)
+		{
+			if(W >wt[j])
+			{
+				 w=w+wt[j];
+				 v=v+value[j];
+			}
+			else
+			{
+				System.out.println("more than actual value");
+			}
+			
+		}
+		System.out.println("enter the total profit obtained"+v);
+		System.out.println("enter the total weight obtained"+w);
+	}
+	public static void main(String[] args) 
+	{
+		knapsack obj=new knapsack();
+		Scanner in=new Scanner(System.in);
+		int W,n;
+		System.out.println("enter number of items");
+		n=in.nextInt();
+		int []wt=new int[n];
+		int []value=new int[n];
+		System.out.println("enter the total weight possible");
+		W=in.nextInt();
+		System.out.println("enter the weights of n items");
+		for(int i=0;i<n;i++)
+		{
+			 wt[i]=in.nextInt();
+		}
+		System.out.println("enter the values of each item");
+		for(int i=0;i<n;i++)
+		{
+			 value[i]=in.nextInt();
+		}
+		obj.find(W, wt, value, n);		
+	}
+}
